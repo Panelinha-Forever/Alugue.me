@@ -13,7 +13,7 @@ class City extends Model {
   }
 
   state() {
-    return this.hasOne("App/Models/State");
+    return this.belongsTo("App/Models/State", "state_id", "id");
   }
 }
 

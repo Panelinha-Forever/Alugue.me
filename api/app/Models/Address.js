@@ -16,12 +16,8 @@ class Address extends Model {
     return ["street", "number", "city_id", "postal_code"];
   }
 
-  user() {
-    return this.belongsTo("App/Models/User", "address_id", "id");
-  }
-
   city() {
-    return this.hasOne("App/Models/City");
+    return this.hasOne("App/Models/City", "city_id", "id");
   }
 }
 

@@ -52,7 +52,7 @@ class User extends Model {
   }
 
   address() {
-    return this.hasOne("App/Models/Address");
+    return this.belongsTo("App/Models/Address", "address_id", "id");
   }
 }
 

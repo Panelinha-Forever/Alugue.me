@@ -22,7 +22,15 @@ class UserController {
 
   async store({ request, transform }) {
     const userData = request.only(User.fillable());
-    const user = await User.create(userData);
+
+    const addressData = request.only(Address.fillable());
+
+    const address = await Address.create(addressData);
+
+    const user = await User.create({
+      ...userData,
+      address_id: address.id
+    });
 
     return transform.item(user, "UserTransformer");
   }
