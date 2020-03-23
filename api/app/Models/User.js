@@ -6,12 +6,18 @@ const Model = use("Model");
 /** @type {import('@adonisjs/framework/src/Hash')} */
 const Hash = use("Hash");
 
+const UserFilter = use("App/ModelFilters/UserFilter");
+
 class User extends Model {
   static get traits() {
     return [
       "@provider:Adonis/Acl/HasRole",
       "@provider:Adonis/Acl/HasPermission"
     ];
+  }
+
+  static fillable() {
+    return ["name", "email", "password"];
   }
 
   static boot() {
@@ -21,6 +27,9 @@ class User extends Model {
      * A hook to hash the user password before saving
      * it to the database.
      */
+
+    this.addTrait("@provider:Filterable", UserFilter);
+
     this.addHook("beforeSave", async userInstance => {
       if (userInstance.dirty.password) {
         userInstance.password = await Hash.make(userInstance.password);
@@ -40,6 +49,10 @@ class User extends Model {
    */
   tokens() {
     return this.hasMany("App/Models/Token");
+  }
+
+  address() {
+    return this.hasOne("App/Models/Address");
   }
 }
 

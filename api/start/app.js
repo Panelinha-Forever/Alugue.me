@@ -17,8 +17,11 @@ const providers = [
   "@adonisjs/cors/providers/CorsProvider",
   "@adonisjs/lucid/providers/LucidProvider",
 
+  "@adonisjs/validator/providers/ValidatorProvider",
   "adonis-acl/providers/AclProvider",
-  "adonis-lucid-filter/providers/LucidFilterProvider"
+  "adonis-lucid-filter/providers/LucidFilterProvider",
+
+  "adonis-bumblebee/providers/BumblebeeProvider"
 ];
 
 /*
@@ -32,7 +35,9 @@ const providers = [
 */
 const aceProviders = [
   "@adonisjs/lucid/providers/MigrationsProvider",
-  "adonis-acl/providers/CommandsProvider"
+  "adonis-acl/providers/CommandsProvider",
+
+  "adonis-bumblebee/providers/CommandsProvider"
 ];
 
 /*
