@@ -48,7 +48,7 @@ class UserController {
   }
 
   async destroy({ params }) {
-    let user = await User.findOrFail(params.id);
+    const user = await User.findOrFail(params.id);
 
     await user.delete();
   }

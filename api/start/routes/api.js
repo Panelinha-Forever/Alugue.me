@@ -10,6 +10,13 @@ Route.group(() => {
       [["/users.update"], ["StoreUser"]]
     ])
   );
+
+  Route.resource("/products", "ProductController").validator(
+    new Map([
+      [["/products.store"], ["StoreProduct"]],
+      [["/products.update"], ["StoreProduct"]]
+    ])
+  );
 })
   .prefix("api/v1")
   .middleware(["auth"]);
