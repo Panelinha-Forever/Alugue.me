@@ -17,6 +17,14 @@ Route.group(() => {
       [["/products.update"], ["StoreProduct"]]
     ])
   );
+
+  Route.resource("/loaned-products", "LoanedProductController");
+  // .validator(
+  //   new Map([
+  //     [["/loaned-products.store"], ["StoreLoanedProduct"]],
+  //     [["/loaned-products.update"], ["StoreLoanedProduct"]]
+  //   ])
+  // );
 })
   .prefix("api/v1")
   .middleware(["auth"]);
