@@ -1,0 +1,41 @@
+// MAIN COLORS
+$primary-color: #3fab36;
+$secondary-color: #315ca7;
+$tertiary-color: #f2f3f7;
+$quaternary-color: #6a707e;
+$quinternary-color: #81c683;
+$sixternary-color: #abafb3;
+$title-color: #5c5c5d;
+
+// TEXT COLORS
+.color-primary {
+  color: $primary-color;
+}
+
+.background-primary {
+  background: $primary-color;
+}
+
+.color-secondary {
+  color: $secondary-color;
+}
+
+.background-secondary {
+  background: $secondary-color;
+}
+
+.color-tertiary {
+  color: $tertiary-color;
+}
+
+.color-quaternary {
+  color: $quaternary-color;
+}
+
+.color-quinternary {
+  color: $quinternary-color;
+}
+
+.color-sixternary {
+  color: $sixternary-color;
+}

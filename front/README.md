@@ -1,24 +1,25 @@
-# front
+const path = require("path");
+// const version = require("./appversion.json").version_app;
 
-## Project setup
-```
-npm install
-```
+let cssConfig = {};
+let chainWebpackConfig = config => config;
+const contentHash =
+process.env.NODE_ENV === "production" ? ".[contenthash:8]" : "";
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+cssConfig.extract = {
+filename: `css/[name]${contentHash}.${1}.css`,
+chunkFilename: `css/[name]${contentHash}.${1}.css`
+};
 
-### Compiles and minifies for production
-```
-npm run build
-```
+chainWebpackConfig = config => {
+config.output
+.filename(`js/[name]${contentHash}.${1}.js`)
+.chunkFilename(`js/[name]${contentHash}.${1}.js`),
+config.module.rules.delete("eslint");
+};
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+module.exports = {
+chainWebpack: chainWebpackConfig,
+css: cssConfig,
+outputDir: path.resolve(\_\_dirname, "dist")
+};
